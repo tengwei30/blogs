@@ -1,6 +1,6 @@
 # webpack4 搭建 react 多页面应用
 
-在往下看之前请确保nodejs > 9.X
+在往下看之前请确保nodejs > 8.X
 
 先上个凉的吃着
 
@@ -25,15 +25,11 @@
 └── package.json           #
 ```
 
-## 初始化项目
+## 开始撸代码
 
-```bash
+1. 如何创建多页面应用，首先你需要先有一个单页面应用进行改装，这里我就不再敲单页面应用的案例啦～git上有[demo](https://github.com/tengwei30/blogs_demo/tree/master/webpack_demo "github单页面")，接下来的多页面也是基于上述单页面改装
 
-# 创建项目
-mkdir webpack_demo && cd webpack_demo && npm init -y
-然后安装上面的目录结构进行项目创建
-
-# 安装依赖并添加至 `package.json`
-npm install --save webpack webpack-cli webpack-dev-server @babel/core @babel/preset-env @babel/preset-react @babel/preset-stage-0
+1. 开始大工程
+	
 
 
