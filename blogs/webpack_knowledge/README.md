@@ -99,34 +99,48 @@ export default {
 
 ## 配置
 
-#### ** Entry **
-entry是配置模块的入口，可抽象成输入，Webpack 执行构建的第一步将从入口开始***搜寻及递归解析***出所有入口依赖的模块。
+1. ### ** Entry **
+	entry是配置模块的入口，可抽象成输入，Webpack 执行构建的第一步将从入口开始***搜寻及递归解析***出所有入口依赖的模块。
 
-##### **Entry类型**
-- String/array/Object  demo 请移步官网，可以是其中一种或多种类型组合
+	##### **Entry类型**
+	- String/array/Object  demo 请移步官网，可以是其中一种或多种类型组合
 
-##### Chunk 名称
-- Webpack 会为每个生成的 Chunk 取一个名称，Chunk 的名称和 Entry 的配置有关：
-	- 如果 entry 是一个 string 或 array，就只会生成一个 Chunk，这时 Chunk 的名称是 main
-	- 如果 entry 是一个 object，就可能会出现多个 Chunk，这时 Chunk 的名称是 object 键值对里键的名称。
+	##### Chunk 名称
+	- Webpack 会为每个生成的 Chunk 取一个名称，Chunk 的名称和 Entry 的配置有关：
+		- 如果 entry 是一个 string 或 array，就只会生成一个 Chunk，这时 Chunk 的名称是 main
+		- 如果 entry 是一个 object，就可能会出现多个 Chunk，这时 Chunk 的名称是 object 键值对里键的名称。
 
-##### ** 动态配置Entry **
-```bash
-	// 同步函数
-	entry: () => {
-	  return {
-		a:'./pages/a',
-		b:'./pages/b',
-	  }
-	};
+	##### ** 动态配置Entry **
+	```bash
+		// 同步函数
+		entry: () => {
+		  return {
+			a:'./pages/a',
+			b:'./pages/b',
+		  }
+		};
 
-	// 异步函数
-	entry: () => {
-	  return new Promise((resolve)=>{
-		resolve({
-		   a:'./pages/a',
-		   b:'./pages/b',
-		});
-	  });
-	};
-```
+		// 异步函数
+		entry: () => {
+		  return new Promise((resolve)=>{
+			resolve({
+			   a:'./pages/a',
+			   b:'./pages/b',
+			});
+		  });
+		};
+	```
+
+2. ### **Output** 输出
+
+	#### filename -- 配置输出文件的名称 -- filename: '[name].js'
+	-   [name] 代表用内置的 name 变量去替换[name]，每个要输出的 Chunk 都会通过这个函数去拼接出输出的文件名称
+	- 内置变量：
+	|  变量名 |  含义 |
+	| :------------: | :------------: |
+	| id  |  Chunk 的唯一标识，从0开始  |
+	| name  | Chunk 的名称  |
+	| hash  |  Chunk 的唯一标识的 Hash 值 |
+	| chunkHash  |  Chunk 内容的 Hash 值 |
+	
+	- **Hash 和 Chunkhash 的长度是可指定的，[Hash:8] 代表取8位 Hash 值，默认是20位**
