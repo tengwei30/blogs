@@ -102,3 +102,31 @@ export default {
 #### ** Entry **
 entry是配置模块的入口，可抽象成输入，Webpack 执行构建的第一步将从入口开始***搜寻及递归解析***出所有入口依赖的模块。
 
+##### **Entry类型**
+- String/array/Object  demo 请移步官网，可以是其中一种或多种类型组合
+
+##### Chunk 名称
+- Webpack 会为每个生成的 Chunk 取一个名称，Chunk 的名称和 Entry 的配置有关：
+	- 如果 entry 是一个 string 或 array，就只会生成一个 Chunk，这时 Chunk 的名称是 main
+	- 如果 entry 是一个 object，就可能会出现多个 Chunk，这时 Chunk 的名称是 object 键值对里键的名称。
+
+##### ** 动态配置Entry **
+```bash
+	// 同步函数
+	entry: () => {
+	  return {
+		a:'./pages/a',
+		b:'./pages/b',
+	  }
+	};
+
+	// 异步函数
+	entry: () => {
+	  return new Promise((resolve)=>{
+		resolve({
+		   a:'./pages/a',
+		   b:'./pages/b',
+		});
+	  });
+	};
+```
