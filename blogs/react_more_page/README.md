@@ -48,6 +48,7 @@
 	1. 现在基本上多页面的应用大部分主要用于原生应用内嵌H5页面，所以这就涉及到native和H5的通信和H5页面在移动端的调试问题啦
 		- native和H5的通信可以查看[JSBridge](https://github.com/lzyzsd/JsBridge)
 		- H5页面在移动端的调试 我在项目中引用的是eruda.js（用的时候别忘了在production环境要禁用哦！）
+	1. 最后一点，移动端的适配demo中用的是vw，不过实际开发中你可以直接去写px；px转vw也已做好，关于vw的移动端适配大家可以google一下～
 		
 		
 	
