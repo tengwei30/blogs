@@ -62,15 +62,15 @@
 2、**作为普通函数方式调用**
 	### this 作为普通函数的方式调用的时候， 此时的this总是指向全局对象
 
-	```js
-	const obj = {
-		a: 'tengwei',
-		getA: function(){
-			console.log(this === obj) // false(this 作为普通函数调用，指向window)
-		}
+```js
+const obj = {
+	a: 'tengwei',
+	getA: function(){
+		console.log(this === obj) // false(this 作为普通函数调用，指向window)
 	}
-	const B = obj.getA
-	B()
-	```
+}
+const B = obj.getA
+B()
+```
 
 3、**构造器调用**
