@@ -58,6 +58,17 @@
 		}
 	}
 	obj.getD()
+
+	// eg 4:
+	const obj = {
+		a: 'tengwei',
+		getE: function() {
+			return function () {
+				console.log(this === obj) // false 返回一个匿名函数，未被显性调用，此时this 指向window, 如果是箭头函数就是true
+			}
+		}
+	}
+	obj.getE()()
 	```
 2、**作为普通函数方式调用**
 	### this 作为普通函数的方式调用的时候， 此时的this总是指向全局对象
